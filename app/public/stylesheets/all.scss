@@ -1,5 +1,5 @@
 @import "reset";
-@import "awesome_buttons";
+@import "buttons";
 
 $link_color: #a4d61a;
 $background_color: #fff;
@@ -15,25 +15,63 @@ a:hover {
   text-decoration : none;
 }
 
+article {
+  margin-bottom   : 1em;
+  line-height     : 150%;
+  max-width       : 30em;
+}
+
 body { 
-  font-family      : Helvetica,Arial,sans-serif;
-  background       : $background_color;
-  color           : darken($background_color, 70);
+  font-family     : Helvetica,Arial,sans-serif;
+  font-size       : 1.2em;
+  background      : $background_color;
+  color           : darken($background_color, 65);
   margin          : 0;
-  padding         : 1em;
   text-rendering  : optimizeLegibility;
 }
 
-#logo {
-  float: right;
-  background: url(/images/hazel.png) no-repeat;
-  display: block;
-  width: 300px;
-  height: 150px;
-  margin-bottom: 1em;
-  text-indent: -9000em;
+article {
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
 }
 
-#logo:focus { 
-  outline: none;
+label {
+  font-weight     : bold;
+  display         : block;
+  margin-bottom   : 0.3em;
+}
+
+.home {
+  padding         : 1em;
+}
+
+.manage {
+  padding         : 0.4em;
+}
+
+#logo, #small_logo {
+  display         : block;
+  text-indent     : -9000em;
+}
+
+#logo {
+  background      : url(/images/hazel.png) no-repeat top left;
+  width           : 300px;
+  height          : 150px;
+  margin-bottom   : 1em;
+}
+
+#small_logo {
+  background      : url(/images/hazel_small.png) no-repeat top left;
+  width           : 145px;
+  height          : 64px;
+  margin-bottom   : 1.5em;
+}
+
+#logo:focus, #small_logo:focus { 
+  outline         : none;
 }

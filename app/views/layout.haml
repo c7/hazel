@@ -8,8 +8,4 @@
       %script{:src => "http://html5shiv.googlecode.com/svn/trunk/html5.js"}
     %title Hazel
   %body{ :class => body_class }
-    .header
-      %header
-        = haml :'_header', :layout => false
-    .content
-      = yield
+    = yield
