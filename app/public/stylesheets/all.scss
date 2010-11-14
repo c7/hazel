@@ -1,0 +1,39 @@
+@import "reset";
+@import "awesome_buttons";
+
+$link_color: #a4d61a;
+$background_color: #fff;
+$header_bg_color:  #f7f6f3;
+
+a { 
+  color           : $link_color;
+  text-decoration : none;
+}
+
+a:hover { 
+  color           : lighten($link_color, 10);
+  text-decoration : none;
+}
+
+body { 
+  font-family      : Helvetica,Arial,sans-serif;
+  background       : $background_color;
+  color           : darken($background_color, 70);
+  margin          : 0;
+  padding         : 1em;
+  text-rendering  : optimizeLegibility;
+}
+
+#logo {
+  float: right;
+  background: url(/images/hazel.png) no-repeat;
+  display: block;
+  width: 300px;
+  height: 150px;
+  margin-bottom: 1em;
+  text-indent: -9000em;
+}
+
+#logo:focus { 
+  outline: none;
+}

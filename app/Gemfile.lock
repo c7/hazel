@@ -1,0 +1,23 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    haml (3.0.23)
+    rack (1.2.1)
+    sinatra (1.1.0)
+      rack (~> 1.1)
+      tilt (~> 1.1)
+    sinatra_warden (0.3.2)
+      sinatra (>= 1.0.0)
+      warden (~> 1.0)
+    tilt (1.1)
+    warden (1.0.2)
+      rack (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml (~> 3.0.23)
+  rack (>= 1.2.1)
+  sinatra (~> 1.1.0)
+  sinatra_warden (~> 0.3.1)
