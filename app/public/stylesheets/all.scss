@@ -51,6 +51,9 @@ label {
 
 .manage {
   padding         : 0.4em;
+  section {
+    width         : 80%;
+  }
 }
 
 #logo, #small_logo {
@@ -60,15 +63,16 @@ label {
 
 #logo {
   background      : url(/images/hazel.png) no-repeat top left;
-  width           : 300px;
-  height          : 150px;
+  width           : 600px;
+  height          : 270px;
   margin-bottom   : 1em;
 }
 
 #small_logo {
-  background      : url(/images/hazel_small.png) no-repeat top left;
-  width           : 145px;
-  height          : 64px;
+  float           : right;
+  background      : url(/images/hazel_icon.png) no-repeat top left;
+  width           : 100px;
+  height          : 100px;
   margin-bottom   : 1.5em;
 }
 
