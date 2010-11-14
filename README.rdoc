@@ -3,8 +3,8 @@
 = Hazel
 
 Hazel is a Sinatra application that handles asset management, mainly images, 
-for a number of (predefined) users. It also includes a bookmarklet for quick 
-and easy uploading and embedding of asset files using Markdown or HTML markup.
+for a number of users. It also includes a bookmarklet for quick and easy 
+uploading and embedding of files using Markdown or HTML markup.
 
 == Installation
 
