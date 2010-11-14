@@ -1,0 +1,51 @@
+#logotype {
+  margin-right: 168px;
+  margin-left: 173px;
+}
+
+#ribbon {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  border: 0;
+}
+
+#about {
+  font-size: 1.9em;
+  color: #83804C;
+  padding: 1em;
+  margin-top: 50px;
+  background: #EFFFCD;
+
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+
+#about a { color: #625B41; }
+
+.section {
+  color: #625B41;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+.section code {
+  font-family: Monaco, Monospace;
+  display: block;
+  padding: 1em;
+  background: #2f1f1e;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #CEC8AA;
+
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
