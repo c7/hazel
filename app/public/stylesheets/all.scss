@@ -15,6 +15,17 @@ a:hover {
   text-decoration : none;
 }
 
+article {
+  .button {
+    margin        : 0.5em 0;
+  }
+  h2 {
+    font-size     : 1.2em;
+    padding-top   : 0.2em;
+    color         : #888;
+  }
+}
+
 body { 
   font-family     : Helvetica,Arial,sans-serif;
   background      : $background_color;
@@ -24,18 +35,25 @@ body {
   height          : 100%;
 }
 
-article {
-  h2 {
-    font-size     : 1.2em;
-    padding-top   : 0.2em;
-    color         : #888;
-  }
-}
-
 label {
   font-weight     : bold;
   display         : block;
   margin-bottom   : 0.3em;
+}
+
+nav a {
+  cursor          : pointer;
+  color           : #999;
+  font-size       : 0.9em;
+  text-shadow     : 1px 1px 1px rgba(245,245,245,1);
+}
+
+nav a:hover {
+  color           : #777;
+}
+
+ul {
+  list-style      : none;
 }
 
 .home {
@@ -43,13 +61,13 @@ label {
   font-size       : 1.2em;
   
   article {
-    margin-bottom   : 1em;
-    line-height     : 150%;
-    max-width       : 30em;
+    margin-bottom : 1em;
+    line-height   : 150%;
+    max-width     : 30em;
   }
 }
 
-.manage {
+.assets {
   background : #eaeaea;
   section {
     @include clearfix;

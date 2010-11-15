@@ -3,15 +3,15 @@ class Hazel < Sinatra::Base
     haml :index, :locals => { :body_class => 'home' }
   end
   
-  get '/manage' do
-    haml :manage, :locals => { :body_class => 'manage' }
+  get '/assets' do
+    haml :assets, :locals => { :body_class => 'assets' }
   end
   
-  get '/manage/upload' do
+  get '/assets/upload' do
     
   end
   
-  get '/manage/embed' do
+  get '/assets/embed' do
     
   end
   
@@ -22,7 +22,7 @@ class Hazel < Sinatra::Base
     
     def bookmarklet
       haml(:bookmarklet, :locals => {
-        :url => "#{base_url}/manage", 
+        :url => "#{base_url}/assets", 
         :window_name => 'hazel-bookmarklet',
         :width => 500, :height => 600
       }).to_s.gsub('\n', '')
