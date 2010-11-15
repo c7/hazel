@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
                   "asset management, mainly images, for a number of " +
                   "(predefined) users."
   s.email       = "peter@c7.se"
-  s.homepage    = "http://c7.github.com/hazel"
+  s.homepage    = "http://c7.github.com/hazel/"
   s.authors     = ["Peter Hellberg"]
   s.licenses    = "MIT-LICENSE"
   
@@ -30,5 +30,6 @@ Gem::Specification.new do |s|
                         %w(MIT-LICENSE README.rdoc)
   
   s.add_dependency('haml', '~> 3.0.23')
+  s.add_dependency('thor', '>= 0.14.4')
   s.add_dependency('sinatra', '>= 1.1.0')  
 end

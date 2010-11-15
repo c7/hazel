@@ -6,10 +6,10 @@
   line-height: 1;
   font-size: 0.9em;
   
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-box-shadow: 0 0px 2px rgba(0,0,0,0.2);
-  -webkit-box-shadow: 0 0px 2px rgba(0,0,0,0.2);
+  @include border-radius(0.6em);
+  
+  -moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
   
   text-shadow: 0 -1px 1px rgba(255,255,255,1);
   
@@ -25,9 +25,9 @@
 }
 
 .button:hover {
-  color: #000;
-  -moz-box-shadow: 0 0px 2px rgba(0,0,0,0.4);
-  -webkit-box-shadow: 0 0px 2px rgba(0,0,0,0.4);
+  color               : #000;
+  -moz-box-shadow     : 0 0px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow  : 0 0px 3px rgba(0,0,0,0.5);
 }
 
 .button:active {
@@ -36,5 +36,12 @@
 }
 
 .button:active, .button:focus {
-  outline: none;
+  outline : none;
+}
+
+/* Small button */
+
+.small.button {
+  font-size       : 0.7em;
+  padding-bottom  : 3px;
 }

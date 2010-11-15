@@ -1,9 +1,9 @@
-@import "reset";
-@import "buttons";
-
 $link_color: #a4d61a;
 $background_color: #fff;
-$header_bg_color:  #f7f6f3;
+
+@import "mixins";
+@import "reset";
+@import "buttons";
 
 a { 
   color           : $link_color;
@@ -15,27 +15,20 @@ a:hover {
   text-decoration : none;
 }
 
-article {
-  margin-bottom   : 1em;
-  line-height     : 150%;
-  max-width       : 30em;
-}
-
 body { 
   font-family     : Helvetica,Arial,sans-serif;
-  font-size       : 1.2em;
   background      : $background_color;
-  color           : darken($background_color, 65);
+  color           : darken($background_color, 75);
   margin          : 0;
   text-rendering  : optimizeLegibility;
+  height          : 100%;
 }
 
 article {
   h2 {
-    font-size: 2em;
-  }
-  h3 {
-    font-size: 1.5em;
+    font-size     : 1.2em;
+    padding-top   : 0.2em;
+    color         : #888;
   }
 }
 
@@ -47,16 +40,70 @@ label {
 
 .home {
   padding         : 1em;
-}
-
-.manage {
-  padding         : 0.4em;
-  section {
-    width         : 80%;
+  font-size       : 1.2em;
+  
+  article {
+    margin-bottom   : 1em;
+    line-height     : 150%;
+    max-width       : 30em;
   }
 }
 
-#logo, #small_logo {
+.manage {
+  background : #eaeaea;
+  section {
+    @include clearfix;
+    
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    
+    -moz-box-shadow     : 0 0px 3px rgba(0,0,0,0.2);
+    -webkit-box-shadow  : 0 0px 3px rgba(0,0,0,0.2);
+    margin              : 1.5em 1em 0 1em;
+    background          : #f1f1f1;
+    border-top : 1px solid #fefefe;
+    
+    h1 {
+      text-shadow: 1px 1px 1px rgba(245,245,245,1);
+      
+      height      : 45px;
+      font-size   : 1.3em;
+      line-height : 45px;
+      margin-left : 10px;
+    }
+  }
+  
+  article {
+    padding: 1em;
+    border-top: 1px solid #d9d9d9;
+    background  : #fff;
+  }
+  
+  nav {
+    border-bottom : 1px solid #fefefe;
+    background    : #d9d9d9;
+    height        : 40px;
+    line-height   : 38px;
+    margin-bottom : 1em;
+    
+    ul {
+      @include clearfix;
+      list-style  : none;
+      clear       : both;
+    }
+    
+    li {
+      float : right;
+      margin-right: 0.8em;
+    }
+  }
+}
+
+#logo, #icon {
   display         : block;
   text-indent     : -9000em;
 }
@@ -68,7 +115,7 @@ label {
   margin-bottom   : 1em;
 }
 
-#small_logo {
+#icon {
   float           : right;
   background      : url(/images/hazel_icon.png) no-repeat top left;
   width           : 100px;
@@ -76,6 +123,6 @@ label {
   margin-bottom   : 1.5em;
 }
 
-#logo:focus, #small_logo:focus { 
+#logo:focus, #icon:focus { 
   outline         : none;
 }

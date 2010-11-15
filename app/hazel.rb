@@ -7,6 +7,14 @@ class Hazel < Sinatra::Base
     haml :manage, :locals => { :body_class => 'manage' }
   end
   
+  get '/manage/upload' do
+    
+  end
+  
+  get '/manage/embed' do
+    
+  end
+  
   helpers do
     def base_url
       @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
