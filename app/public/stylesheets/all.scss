@@ -1,5 +1,5 @@
 $link_color: #a4d61a;
-$background_color: #fff;
+$background_color: #eaeaea;
 
 @import "mixins";
 @import "reset";
@@ -32,6 +32,14 @@ body {
   color           : darken($background_color, 75);
   margin          : 0;
   text-rendering  : optimizeLegibility;
+}
+
+footer {
+  padding         : 1em;
+  text-align      : right;
+}
+
+html {
   height          : 100%;
 }
 
@@ -62,12 +70,13 @@ ul {
   
   article {
     margin-bottom : 1em;
-    line-height   : 150%;
+    line-height   : 140%;
     max-width     : 30em;
   }
 }
 
 .assets {
+  height  : 100%;
   background : #eaeaea;
   section {
     @include clearfix;
