@@ -12,12 +12,15 @@ class Hazel < Sinatra::Base
       @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
     end
     
-    def bookmarklet
-      haml(:bookmarklet, :locals => {
-        :url => "#{base_url}/assets", 
-        :window_name => 'hazel-bookmarklet',
-        :width => 750, :height => 550
-      }).to_s.gsub('\n', '')
+    def bookmarklet      
+      url = "#{base_url}/assets"
+      name = 'hazel-bookmarklet'
+      width = 750
+      height = 550
+      
+      "javascript:hazel=window.open('#{url}','#{name}'," +
+      "'width=#{width},height=#{height}');" + 
+      "if(window.focus){ hazel.focus(); }"
     end
   end
 end
