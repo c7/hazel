@@ -1,1 +1,286 @@
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted inherit;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:1em 0;padding:0}input,select{vertical-align:middle}header,nav,section,aside,footer{display:block}.button,.button:visited{color:#333;display:inline-block;text-decoration:none;font-weight:normal;line-height:1;font-size:0.9em;-moz-border-radius:0.6em;-webkit-border-radius:0.6em;border-radius:0.6em;-moz-box-shadow:0 0px 3px rgba(0, 0, 0, 0.2);-webkit-box-shadow:0 0px 3px rgba(0, 0, 0, 0.2);text-shadow:0 -1px 1px white;background:-moz-linear-gradient(100% 100% 90deg, #eeeeee, white);background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#eeeeee));position:relative;cursor:pointer;border:0;padding:4px 10px}.button:hover{color:#000;-moz-box-shadow:0 0px 3px rgba(0, 0, 0, 0.5);-webkit-box-shadow:0 0px 3px rgba(0, 0, 0, 0.5)}.button:active{background:-moz-linear-gradient(100% 100% 90deg, white, #eeeeee);background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(white))}.button:active,.button:focus{outline:none}.small.button{font-size:0.7em;padding-bottom:3px}a{color:#a4d61a;text-decoration:none}a:hover{color:#bae73c;text-decoration:none}article .button{margin:0.5em 0}article h2{font-size:1.2em;padding-top:0.2em;color:#888}body{font-family:Helvetica,Arial,sans-serif;background:#eaeaea;color:#2b2b2b;margin:0;text-rendering:optimizeLegibility}footer{padding:1em;text-align:right}html{height:100%}label{font-weight:bold;display:block;margin-bottom:0.3em}nav a{cursor:pointer;color:#999;font-size:0.9em;text-shadow:1px 1px 1px #f5f5f5}nav a:hover{color:#777}ul{list-style:none}.home{padding:1em;font-size:1.2em}.home article{margin-bottom:1em;line-height:140%;max-width:30em}.assets{height:100%;background:#eaeaea}.assets section{-webkit-border-top-left-radius:6px;-webkit-border-top-right-radius:6px;-moz-border-radius-topleft:6px;-moz-border-radius-topright:6px;border-top-left-radius:6px;border-top-right-radius:6px;-moz-box-shadow:0 0px 3px rgba(0, 0, 0, 0.2);-webkit-box-shadow:0 0px 3px rgba(0, 0, 0, 0.2);margin:1.5em 1em 0 1em;background:#f1f1f1;border-top:1px solid #fefefe}.assets section:after{content:" ";display:block;height:0;clear:both;visibility:hidden;font-size:0}* html .assets section{height:1px}.assets section h1{text-shadow:1px 1px 1px #f5f5f5;height:45px;font-size:1.3em;line-height:45px;margin-left:10px}.assets article{padding:1em;border-top:1px solid #d9d9d9;background:#fff}.assets nav{border-bottom:1px solid #fefefe;background:#d9d9d9;height:40px;line-height:38px;margin-bottom:1em}.assets nav ul{list-style:none;clear:both}.assets nav ul:after{content:" ";display:block;height:0;clear:both;visibility:hidden;font-size:0}* html .assets nav ul{height:1px}.assets nav li{float:right;margin-right:0.8em}#logo,#icon{display:block;text-indent:-9000em}#logo{background:url(/images/hazel.png) no-repeat top left;width:600px;height:270px;margin-bottom:1em}#icon{float:right;background:url(/images/hazel_icon.png) no-repeat top left;width:100px;height:100px;margin-bottom:1.5em}#logo:focus,#icon:focus{outline:none}
+/* 
+html5doctor.com Reset Stylesheet
+v1.6
+Last Updated: 2010-08-18
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted inherit;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+header, nav, section, aside, footer {
+  display: block; }
+
+.button, .button:visited {
+  color: #333;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: normal;
+  line-height: 1;
+  font-size: 0.9em;
+  -moz-border-radius: 0.6em;
+  -webkit-border-radius: 0.6em;
+  border-radius: 0.6em;
+  -moz-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 -1px 1px white;
+  background: -moz-linear-gradient(100% 100% 90deg, #eeeeee, white);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#eeeeee));
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  padding: 4px 10px; }
+
+.button:hover {
+  color: #000;
+  -moz-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.5); }
+
+.button:active {
+  background: -moz-linear-gradient(100% 100% 90deg, white, #eeeeee);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(white)); }
+
+.button:active, .button:focus {
+  outline: none; }
+
+/* Small button */
+.small.button {
+  font-size: 0.7em;
+  padding-bottom: 3px; }
+
+a {
+  color: #a4d61a;
+  text-decoration: none; }
+
+a:hover {
+  color: #bae73c;
+  text-decoration: none; }
+
+article .button {
+  margin: 0.5em 0; }
+article h2 {
+  font-size: 1.2em;
+  padding-top: 0.2em;
+  color: #888; }
+
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  background: #eaeaea;
+  color: #2b2b2b;
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4 {
+  margin: 0; }
+
+h1 {
+  font-size: 1.5714285714285714em;
+  line-height: 0.9545454545454546em;
+  margin-bottom: 0.9545454545454546em; }
+
+h2 {
+  font-size: 1.4285714285714286em;
+  line-height: 1.05em;
+  margin-bottom: 1.05em; }
+
+h3 {
+  font-size: 1.2857142857142858em;
+  line-height: 1.1666666666666667em;
+  margin-bottom: 1.1666666666666667em; }
+
+h4 {
+  font-size: 1.1428571428571428em;
+  line-height: 1.3125em;
+  margin-bottom: 1.3125em; }
+
+p, ul, blockquote, pre, td, th, label {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1.5em; }
+
+p.small {
+  margin: 0;
+  font-size: 0.8571428571428571em;
+  line-height: 1.75em;
+  margin-bottom: 1.75em; }
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 1.5em; }
+
+footer {
+  padding: 1em;
+  text-align: right; }
+
+html {
+  height: 100%; }
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3em; }
+
+nav a {
+  cursor: pointer;
+  color: #999;
+  font-size: 0.9em;
+  text-shadow: 1px 1px 1px #f5f5f5; }
+
+nav a:hover {
+  color: #777; }
+
+ul {
+  list-style: none; }
+
+.about {
+  padding: 1em;
+  font-size: 1.2em; }
+.about section article:last-child {
+  margin-bottom: 0; }
+.about article {
+  margin-bottom: 1.5em;
+  line-height: 140%;
+  max-width: 30em; }
+
+.assets {
+  height: 100%;
+  background: #eaeaea; }
+.assets section {
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -moz-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  margin: 1.5em 1em 0 1em;
+  background: #f1f1f1;
+  border-top: 1px solid #fefefe; }
+.assets section:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  font-size: 0; }
+* html .assets section {
+  height: 1px; }
+.assets section h1 {
+  text-shadow: 1px 1px 1px #f5f5f5;
+  margin-left: 10px;
+  margin-top: 0.4772725em;
+  margin-bottom: 0.4772725em; }
+.assets article {
+  padding: 1em;
+  border-top: 1px solid #d9d9d9;
+  background: #fff; }
+.assets nav {
+  border-bottom: 1px solid #fefefe;
+  background: #d9d9d9;
+  padding: 10px 0 0 0; }
+.assets nav ul {
+  list-style: none;
+  clear: both;
+  margin-bottom: 10px; }
+.assets nav ul:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  font-size: 0; }
+* html .assets nav ul {
+  height: 1px; }
+.assets nav li {
+  float: right;
+  margin-right: 0.8em; }
+
+#logo, #icon {
+  display: block;
+  text-indent: -9000em; }
+
+#logo {
+  background: url(/images/hazel.png) no-repeat top left;
+  width: 600px;
+  height: 270px;
+  margin-bottom: 1em; }
+
+#icon {
+  float: right;
+  background: url(/images/hazel_icon.png) no-repeat top left;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5em; }
+
+#logo:focus, #icon:focus {
+  outline: none; }

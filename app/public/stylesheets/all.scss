@@ -30,8 +30,57 @@ body {
   font-family     : Helvetica,Arial,sans-serif;
   background      : $background_color;
   color           : darken($background_color, 75);
-  margin          : 0;
   text-rendering  : optimizeLegibility;
+  font-size       : 14px;
+  line-height     : 1.5em;
+  margin          : 0;
+  padding         : 0;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.5714285714285714em;
+  line-height: 0.9545454545454546em;
+  margin-bottom: 0.9545454545454546em;
+}
+h2 {
+  font-size: 1.4285714285714286em;
+  line-height: 1.05em;
+  margin-bottom: 1.05em;
+}
+
+h3 {
+  font-size: 1.2857142857142858em;
+  line-height: 1.1666666666666667em;
+  margin-bottom: 1.1666666666666667em;
+}
+
+h4 {
+  font-size: 1.1428571428571428em;
+  line-height: 1.3125em;
+  margin-bottom: 1.3125em;
+}
+
+p, ul, blockquote, pre, td, th, label {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+p.small {
+  margin: 0;
+  font-size: 0.8571428571428571em;
+  line-height: 1.75em;
+  margin-bottom: 1.75em;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
 }
 
 footer {
@@ -64,12 +113,18 @@ ul {
   list-style      : none;
 }
 
-.home {
+.about {
   padding         : 1em;
   font-size       : 1.2em;
 
+  section {
+    article:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   article {
-    margin-bottom : 1em;
+    margin-bottom : 1.5em;
     line-height   : 140%;
     max-width     : 30em;
   }
@@ -95,32 +150,28 @@ ul {
     border-top : 1px solid #fefefe;
 
     h1 {
-      text-shadow: 1px 1px 1px rgba(245,245,245,1);
-
-      height      : 45px;
-      font-size   : 1.3em;
-      line-height : 45px;
-      margin-left : 10px;
+      text-shadow   : 1px 1px 1px rgba(245,245,245,1);
+      margin-left   : 10px;
+      margin-top    : 0.4772725em;
+      margin-bottom : 0.4772725em;
     }
   }
 
   article {
-    padding: 1em;
-    border-top: 1px solid #d9d9d9;
-    background  : #fff;
+    padding       : 1em;
+    border-top    : 1px solid #d9d9d9;
+    background    : #fff;
   }
 
   nav {
     border-bottom : 1px solid #fefefe;
     background    : #d9d9d9;
-    height        : 40px;
-    line-height   : 38px;
-    margin-bottom : 1em;
-
+    padding       : 10px 0 0 0;
     ul {
       @include clearfix;
       list-style  : none;
       clear       : both;
+      margin-bottom: 10px;
     }
 
     li {

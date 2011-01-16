@@ -4,4 +4,4 @@ require 'bundler'
 Bundler.require
 
 require 'hazel.rb'
-run Hazel
+run Hazel::App
