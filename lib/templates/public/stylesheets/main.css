@@ -64,7 +64,7 @@
     background: #eee;
     border: 1px solid #ccc;
     float: right;
-    padding: 3.75%; /* 9px / 240px */
+    padding: 2.08333333333%; /* 5px / 240px */
     width: 30%; /* 240px / 800px */
   }
 
@@ -83,7 +83,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .wrapper {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
