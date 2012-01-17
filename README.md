@@ -12,6 +12,8 @@ A simple Sinatra app generator, heavily based on [snfn](https://github.com/zachp
    Default is "sqlite."
 *  `--redis` Include Redis configuration options.
 * `--no-database` Don't include any database config options.
+* `--no-bundle-install` Don’t run bundle install after generating the app
+* `--no-git-repo` Don’t initialize a Git repository
 
 ## Example
 

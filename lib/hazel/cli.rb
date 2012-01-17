@@ -14,6 +14,7 @@ module Hazel
     class_option :no_database, :type => :boolean, :desc => "Exclude all database configuration files"
     class_option :redis, :type => :boolean, :desc => "Include Redis configuration"
     class_option :no_bundle_install, :type => :boolean, :desc => "Don’t run bundle install after generating the app"
+    class_option :no_git_repo, :type => :boolean, :desc => "Don’t initialize a Git repository"
 
     # Creates instance variables from options passed to hazel.
     def setup
@@ -42,6 +43,8 @@ module Hazel
       %w{public/stylesheets public/javascripts public/images}.each do |dir|
         directory dir, File.join(@app_path, dir)
       end
+
+      template "public/favicon.ico", File.join(@app_path, "public/favicon.ico")
     end
 
     def create_view_directory
@@ -92,10 +95,15 @@ module Hazel
       template("config/initializers/redis.rb", File.join(@app_path, "config/initializers/redis.rb")) if @redis
     end
 
-
     def install_dependencies
       inside(@name) do
         run('bundle install') unless @no_bundle_install
+      end
+    end
+
+    def initialize_git_repo
+      inside(@name) do
+        run('git init .') unless @no_git_repo
       end
     end
   end
