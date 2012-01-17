@@ -15,7 +15,7 @@
   font-size: 1.9em;
   color: #83804C;
   padding: 1em;
-  margin-top: 50px;
+  margin-top: 20px;
   background: #EFFFCD;
 
   -webkit-border-radius: 12px;
@@ -24,6 +24,8 @@
 }
 
 #about a { color: #625B41; }
+
+#screencast { margin-top: 20px; margin-bottom: 20px; }
 
 .section {
   color: #625B41;
