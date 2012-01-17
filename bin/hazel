@@ -1,11 +1,6 @@
 #!/usr/bin/env ruby
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
 
-begin
-  require "hazel/cli"
-rescue LoadError
-  lib_path = File.expand_path('../../lib', __FILE__)
-  $:.unshift(lib_path)
-  require "hazel/cli"
-end
+require "hazel/cli"
 
 Hazel::CLI.start

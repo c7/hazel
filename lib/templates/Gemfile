@@ -1,0 +1,32 @@
+source :rubygems
+
+# App Stack
+gem "sinatra", "~> 1.3.2"
+
+<% unless @no_database -%>
+# Database Stack
+<% unless @database == 'mongo' -%>
+gem "sequel"
+<% end -%>
+<% if @database == "sqlite" -%>
+gem "sqlite3"
+<% elsif @database == "postgres" -%>
+gem "pg"
+<% elsif @database == "mysql" -%>
+gem "mysql2"
+<% elsif @database == "mongo" -%>
+gem "bson_ext", "~> 1.5"
+gem "mongodb_model", "~> 2.1"
+<% end -%>
+<% end -%>
+
+<% if @redis -%>
+# Redis
+gem "hiredis", "~> 0.4"
+gem "redis", "~> 2.2", :require => ["redis/connection/hiredis", "redis"]
+<% end -%>
+
+group :development do
+  gem "minitest", "~> 2.10"
+  gem "rack-test", "~> 0.6.1"
+end
