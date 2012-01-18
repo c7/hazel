@@ -2,6 +2,8 @@
 
 A simple Sinatra app generator, heavily based on [snfn](https://github.com/zachpendleton/snfn).
 
+![Using Hazel](http://c7.github.com/hazel/images/using_hazel.gif)
+
 ## Installation
 
     gem install hazel
