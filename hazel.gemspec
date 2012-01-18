@@ -18,7 +18,11 @@ Gem::Specification.new do |s|
 
   s.require_paths = [%q{lib}]
 
-  s.files             = Dir.glob("lib/**/*", File::FNM_DOTMATCH) +
+  s.files             = Dir.glob("lib/**/*") +
+                        [
+                          "lib/templates/public/images/.gitkeep",
+                          "lib/templates/public/javascripts/.gitkeep"
+                        ] +
                         Dir.glob("spec/**/*") +
                         %w(Gemfile Gemfile.lock MIT-LICENSE README.md Rakefile)
 
