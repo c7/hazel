@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name        = "hazel"
   s.version     = Hazel::VERSION::STRING
   s.summary     = "A simple Sinatra app generator."
-  s.description = "Hazel is a generator for Sinatra apps, heavily based on snfn" +
+  s.description = "Hazel is a generator for Sinatra apps, heavily based on snfn"
   s.email       = "peter@c7.se"
   s.homepage    = "http://c7.github.com/hazel/"
   s.authors     = ["Peter Hellberg"]
