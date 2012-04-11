@@ -27,5 +27,5 @@ Gem::Specification.new do |s|
                         %w(Gemfile Gemfile.lock MIT-LICENSE README.md Rakefile)
 
   s.add_runtime_dependency('thor', '~> 0.14.6')
-  s.add_development_dependency('bundler', '~> 1.0')
+  s.add_development_dependency('bundler', '~> 1.1')
 end
