@@ -32,6 +32,10 @@ App using MongoDB and Redis, but don’t run bundle install.
 
     hazel my_app -d mongo --redis --no-bundle-install
 
+App using Redis, a RVM Gemset, but no database or Git repo
+
+    hazel my_app --redis --rvm-gemset --no-database --no-git-repo
+
 ## Architecture
 
 The template autoloads files in config/initializers and
@@ -42,7 +46,7 @@ and are loaded via `config/initializers/database.rb`.
 
 [Sequel](http://sequel.rubyforge.org) is used as an ORM for
 relational databases, and migrations are stored in db/migrate.
-Migrations can be run using the rake command `rake rb:migrate`.
+Migrations can be run using the rake command `rake db:migrate`.
 
 [mongodb_model](https://github.com/alexeypetrushin/mongodb_model)
 is used for Mongo apps, with the config options
