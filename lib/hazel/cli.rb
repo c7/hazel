@@ -13,12 +13,15 @@ module Hazel
     class_option :database, :aliases => "-d", :default => "sqlite", :desc => "The type of database to use"
     class_option :no_database, :type => :boolean, :desc => "Exclude all database configuration files"
     class_option :redis, :type => :boolean, :desc => "Include Redis configuration"
+    class_option :rvm_gemset, :type => :boolean, :desc => "Create a new RVM Gemset under the current Ruby"
     class_option :no_bundle_install, :type => :boolean, :desc => "Don’t run bundle install after generating the app"
     class_option :no_git_repo, :type => :boolean, :desc => "Don’t initialize a Git repository"
 
     # Creates instance variables from options passed to hazel.
     def setup
-      @name = @app_path = name.file_name
+      @app_path = name.directory_name
+      @name     = name.file_name
+
       options.each do |key, value|
         instance_variable_set "@#{key.to_s}".to_sym, value
       end
@@ -95,14 +98,40 @@ module Hazel
       template("config/initializers/redis.rb", File.join(@app_path, "config/initializers/redis.rb")) if @redis
     end
 
+    def create_rvm_gemset
+      if @rvm_gemset
+        rvm_path = File.expand_path(ENV['rvm_path'] || '~/.rvm')
+        $LOAD_PATH.unshift File.join(rvm_path, 'lib')
+        require 'rvm'
+
+        rvm_ruby = "#{ENV['RUBY_VERSION']}@#{@app_path}"
+        data = "rvm --create use #{rvm_ruby}"
+
+        create_file(File.join(@app_path, '.rvmrc'), data)
+        run("rvm rvmrc trust #{@app_path}")
+
+        rvm_env = RVM::Environment.new(rvm_ruby)
+
+        unless @no_bundle_install
+          rvm_env.chdir(@app_path) do
+            puts "\n      Installing dependencies into #{rvm_ruby}\n\n"
+            rvm_env.system "gem install bundler"
+            rvm_env.system "bundle install"
+          end
+
+          @no_bundle_install = true
+        end
+      end
+    end
+
     def install_dependencies
-      inside(@name) do
+      inside(@app_path) do
         run('bundle install') unless @no_bundle_install
       end
     end
 
     def initialize_git_repo
-      inside(@name) do
+      inside(@app_path) do
         run('git init .') unless @no_git_repo
       end
     end
