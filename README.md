@@ -13,6 +13,7 @@ A simple Sinatra app generator, heavily based on [snfn](https://github.com/zachp
 *  `-d` Database. Options are "postgres," "mysql," "sqlite", and "mongo."
    Default is "sqlite."
 *  `--redis` Include Redis configuration options.
+* `--rvm-gemset` Create a new RVM Gemset under the current Ruby
 * `--no-database` Don't include any database config options.
 * `--no-bundle-install` Don’t run bundle install after generating the app
 * `--no-git-repo` Don’t initialize a Git repository
