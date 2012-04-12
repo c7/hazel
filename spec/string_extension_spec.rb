@@ -45,4 +45,9 @@ describe String do
   it "should_underscore_a_string_with_a_hyphen_preceding_a_capital_letter" do
     "my_App".file_name.must_equal "my_app"
   end
+
+  it "should allow dashes in directory names, but not in filenames" do
+    "my-App".directory_name.must_equal "my-app"
+    "my-App".file_name.must_equal "my_app"
+  end
 end

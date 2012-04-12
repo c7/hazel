@@ -15,15 +15,16 @@ module Hazel
         self.replace camel_case
       end
 
+      def directory_name
+        self.downcase.gsub(/[^a-z|\-|\_]/, '')
+      end
+
       def file_name
-        return self.gsub(/-/, "_") if !match(/[A-Z]/)
-        altered_self = self.strip
-
-        altered_self.scan(/[A-Z]/).each do |match|
-          altered_self.gsub!(match, "_#{match.downcase}")
-        end
-
-        altered_self.sub(/^_/, "").gsub(/_{2,}+/, "_").downcase
+        self.gsub(/[\-| ]/, '_').
+             gsub(/([A-Z]+|[A-Z][a-z])/) { |x| "_#{x}" }.
+             sub(/^_/, "").
+             gsub(/_{2,}+/, "_").
+             downcase
       end
 
       def file_name!
