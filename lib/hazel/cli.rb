@@ -114,7 +114,7 @@ module Hazel
 
         unless @no_bundle_install
           rvm_env.chdir(@app_path) do
-            puts "\n      Installing dependencies into #{rvm_ruby}\n\n"
+            say_status :installing, "All dependencies into #{rvm_ruby}"
             rvm_env.system "gem install bundler"
             rvm_env.system "bundle install"
           end
