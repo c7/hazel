@@ -75,7 +75,7 @@ module Hazel
     end
 
     def create_rakefile
-      copy_file "Rakefile", File.join(@app_path, "Rakefile")
+      template "Rakefile", File.join(@app_path, "Rakefile")
     end
 
     def create_readme
