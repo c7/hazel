@@ -5,9 +5,17 @@ task :default => :spec
 Rake::TestTask.new(:spec) do |t|
   t.test_files = FileList['spec/*_spec.rb']
   t.ruby_opts = ['-rubygems'] if defined? Gem
-  t.ruby_opts << '-I.'
 end
 
+task :kicker do
+  exec 'kicker -r ruby -e "clear && bundle exec rake" spec lib'
+end
+
+task :sass do
+  exec 'sass --watch --scss --style compressed sass/main.scss:public/stylesheets/main.css'
+end
+
+<% unless @no_database -%>
 namespace :db do
   desc "Run all migrations in db/migrate"
   task :migrate => :connect do
@@ -19,11 +27,4 @@ namespace :db do
     require "./config/initializers/database"
   end
 end
-
-task :environment, [:env] do |cmd, args|
-  Bundler.require
-  ENV['RACK_ENV'] = args[:env] || "development"
-  %w{ ./config/initializers ./lib }.each do |lib|
-    Find.find(lib) { |f| require f unless f.match(/\/\..+$/) || File.directory?(f) }
-  end
-end
+<%end%>
