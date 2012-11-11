@@ -1,7 +1,7 @@
 source :rubygems
 
 # App Stack
-gem "sinatra", "~> 1.3.2"
+gem "sinatra", "~> 1.3"
 
 <% unless @no_database -%>
 # Database Stack
@@ -25,10 +25,17 @@ gem "mongodb_model", "~> 2.1"
 gem "hiredis", "~> 0.4"
 gem "redis", "~> 3.0", :require => ["redis/connection/hiredis", "redis"]
 gem "fakeredis", "~> 0.4"
-<% end -%>
 
+<% end -%>
 group :development do
   gem "rake", "~> 0.9"
-  gem "minitest", "~> 3.2"
+  gem "minitest", "~> 4.2"
   gem "rack-test", "~> 0.6"
+<% if @capistrano -%>
+  gem "capistrano", "~> 2.13"
+  gem "capistrano-ext", "~> 1.2"
+<% if @rvm_gemset -%>
+  gem "rvm-capistrano", "~> 1.2"
+<% end -%>
+<% end -%>
 end

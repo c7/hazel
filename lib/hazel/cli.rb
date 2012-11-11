@@ -10,6 +10,7 @@ module Hazel
 
     desc "Creates a new Sinatra application"
     argument :name, :type => :string, :desc => "The name of the new application"
+    class_option :capistrano, :type => :boolean, :desc => "Include Capistrano configuration"
     class_option :database, :aliases => "-d", :default => "sqlite", :desc => "The type of database to use"
     class_option :no_database, :type => :boolean, :desc => "Exclude all database configuration files"
     class_option :redis, :type => :boolean, :desc => "Include Redis configuration"
@@ -80,6 +81,15 @@ module Hazel
 
     def create_readme
       copy_file "README.md", File.join(@app_path, "README.md")
+    end
+
+    def create_capistrano_config
+      if @capistrano
+        copy_file "Capfile", File.join(@app_path, "Capfile")
+        empty_directory File.join(@app_path, 'config/deploy')
+        template "config/deploy.rb", File.join(@app_path, "config/deploy.rb")
+        template "config/deploy/production.rb", File.join(@app_path, "config/deploy/production.rb")
+      end
     end
 
     def create_db_config
