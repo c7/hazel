@@ -113,19 +113,21 @@ module Hazel
         rvm_path = File.expand_path(ENV['rvm_path'] || '~/.rvm')
         require 'rvm'
 
-        rvm_ruby = "#{ENV['RUBY_VERSION']}@#{@app_path}"
-        data = "rvm --create use #{rvm_ruby}"
+        rvm_env = RVM::Environment.new(ENV['RUBY_VERSION'])
 
-        create_file(File.join(@app_path, '.rvmrc'), data)
+        rvm_env.gemset_create(@app_path)
+        rvm_env.gemset_use(@app_path)
+
+        gemset = "#{ENV['RUBY_VERSION']}@#{@app_path}"
+
+        create_file(File.join(@app_path, '.rvmrc'), "rvm use #{gemset}")
         run("rvm rvmrc trust #{@app_path}")
-
-        rvm_env = RVM::Environment.new(rvm_ruby)
 
         unless @no_bundle_install
           rvm_env.chdir(@app_path) do
-            say_status :installing, "All dependencies into #{rvm_ruby}"
+            say_status :installing, "All dependencies into #{gemset}"
             rvm_env.system "gem install bundler"
-            rvm_env.system "bundle install"
+            rvm_env.run_command 'bundle install'
           end
 
           @no_bundle_install = true
