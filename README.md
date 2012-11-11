@@ -10,6 +10,7 @@ A simple Sinatra app generator, heavily based on [snfn](https://github.com/zachp
 
 ## Configuration
 
+* `--capistrano` Include Capistrano configuration
 *  `-d` Database. Options are "postgres," "mysql," "sqlite", and "mongo."
    Default is "sqlite."
 *  `--redis` Include Redis configuration options.
