@@ -7,14 +7,6 @@ Rake::TestTask.new(:spec) do |t|
   t.ruby_opts = ['-rubygems'] if defined? Gem
 end
 
-task :kicker do
-  exec 'kicker -r ruby -e "clear && bundle exec rake" spec lib'
-end
-
-task :sass do
-  exec 'sass --watch --scss --style compressed sass/main.scss:public/stylesheets/main.css'
-end
-
 <% unless @no_database -%>
 namespace :db do
   desc "Run all migrations in db/migrate"
