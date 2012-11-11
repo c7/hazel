@@ -101,7 +101,6 @@ module Hazel
     def create_rvm_gemset
       if @rvm_gemset
         rvm_path = File.expand_path(ENV['rvm_path'] || '~/.rvm')
-        $LOAD_PATH.unshift File.join(rvm_path, 'lib')
         require 'rvm'
 
         rvm_ruby = "#{ENV['RUBY_VERSION']}@#{@app_path}"
