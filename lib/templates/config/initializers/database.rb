@@ -1,4 +1,5 @@
 <% unless @no_database -%>
+require "yaml"
 settings = YAML::load_file("config/db.yml")
 <% if @database != 'mongo' -%>
 # Sequel Configuration
