@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
                         Dir.glob("spec/**/*") +
                         %w(Gemfile Gemfile.lock MIT-LICENSE README.md Rakefile)
 
-  s.add_runtime_dependency('thor', '~> 0.16')
-  s.add_development_dependency('bundler', '~> 1.2')
-  s.add_development_dependency('minitest', '~> 4.2')
+  s.add_runtime_dependency('thor', '~> 0.17')
+  s.add_development_dependency('bundler', '~> 1.3')
+  s.add_development_dependency('minitest', '~> 4.6')
 end
