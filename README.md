@@ -61,7 +61,7 @@ and `config/initializers/database.rb`).
 
 ## License
 
-    Copyright (c) 2012 Peter Hellberg
+    Copyright (c) 2013 Peter Hellberg
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
