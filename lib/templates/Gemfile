@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org/"
 
 # App Stack
 gem "sinatra", "~> 1.3"
@@ -15,7 +15,7 @@ gem "pg"
 <% elsif @database == "mysql" -%>
 gem "mysql2"
 <% elsif @database == "mongo" -%>
-gem "bson_ext", "~> 1.6"
+gem "bson_ext", "~> 1.8"
 gem "mongodb_model", "~> 2.1"
 <% end -%>
 <% end -%>
@@ -28,11 +28,11 @@ gem "fakeredis", "~> 0.4"
 
 <% end -%>
 group :development do
-  gem "rake", "~> 0.9"
-  gem "minitest", "~> 4.2"
+  gem "rake", "~> 10.0"
+  gem "minitest", "~> 4.6"
   gem "rack-test", "~> 0.6"
 <% if @capistrano -%>
-  gem "capistrano", "~> 2.13"
+  gem "capistrano", "~> 2.14"
   gem "capistrano-ext", "~> 1.2"
 <% if @rvm_gemset -%>
   gem "rvm-capistrano", "~> 1.2"
