@@ -1,7 +1,7 @@
 <% if @rvm_gemset -%>
 require "rvm/capistrano"
 
-set :rvm_ruby_string, "ruby-1.9.3"
+set :rvm_ruby_string, "ruby-2.1.0"
 set :rvm_type, :system
 
 <% end -%>

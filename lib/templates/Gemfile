@@ -1,7 +1,7 @@
 source "https://rubygems.org/"
 
 # App Stack
-gem "sinatra", "~> 1.3"
+gem "sinatra", "~> 1.4"
 
 <% unless @no_database -%>
 # Database Stack
@@ -29,10 +29,10 @@ gem "fakeredis", "~> 0.4"
 <% end -%>
 group :development do
   gem "rake", "~> 10.0"
-  gem "minitest", "~> 4.6"
+  gem "minitest", "~> 5.2"
   gem "rack-test", "~> 0.6"
 <% if @capistrano -%>
-  gem "capistrano", "~> 2.14"
+  gem "capistrano", "~> 3.0"
   gem "capistrano-ext", "~> 1.2"
 <% if @rvm_gemset -%>
   gem "rvm-capistrano", "~> 1.2"
