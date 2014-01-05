@@ -18,15 +18,15 @@ Gem::Specification.new do |s|
 
   s.require_paths = [%q{lib}]
 
-  s.files             = Dir.glob("lib/**/*") +
-                        [
-                          "lib/templates/public/images/.gitkeep",
-                          "lib/templates/public/javascripts/.gitkeep"
-                        ] +
-                        Dir.glob("spec/**/*") +
-                        %w(Gemfile Gemfile.lock MIT-LICENSE README.md Rakefile)
+  s.files = Dir.glob("lib/**/*") +
+    [
+      "lib/templates/public/images/.gitkeep",
+      "lib/templates/public/javascripts/.gitkeep"
+    ] +
+    Dir.glob("spec/**/*") +
+    %w(Gemfile Gemfile.lock MIT-LICENSE README.md Rakefile)
 
-  s.add_runtime_dependency('thor', '~> 0.17')
-  s.add_development_dependency('bundler', '~> 1.3')
-  s.add_development_dependency('minitest', '~> 4.6')
+  s.add_runtime_dependency('thor', '~> 0.18')
+  s.add_development_dependency('bundler', '~> 1.5.1')
+  s.add_development_dependency('minitest', '~> 5.2')
 end
