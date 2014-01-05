@@ -1,6 +1,5 @@
 # encoding: UTF-8
 
-require "rubygems"
 require "extensions/string"
 require "thor/group"
 
@@ -33,7 +32,7 @@ module Hazel
 
     # Create empty directories
     def create_empty_directories
-      %w{config/initializers lib log tmp spec}.each do |dir|
+      %w{config/initializers lib spec}.each do |dir|
         empty_directory File.join(@app_path, dir)
       end
 
@@ -106,12 +105,6 @@ module Hazel
       end
     end
 
-    def initialize_git_repo
-      inside(@app_path) do
-        run('git init .') if @git
-      end
-    end
-
     def create_rvm_gemset
       if @rvm
         create_file(File.join(@app_path, '.ruby-version'), 'ruby-2.1.0')
@@ -119,6 +112,12 @@ module Hazel
 
         @bundle = false
         puts "You need to run 'bundle install' manually."
+      end
+    end
+
+    def initialize_git_repo
+      inside(@app_path) do
+        run('git init .') if @git
       end
     end
 
