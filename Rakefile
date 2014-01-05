@@ -1,5 +1,7 @@
 # encoding: utf-8
-require 'rake/testtask'
+
+require "rake/testtask"
+require "bundler/gem_tasks"
 
 Rake::TestTask.new(:spec) do |test|
   test.libs << 'lib' << 'spec'
