@@ -11,12 +11,11 @@ module Hazel
     desc "Creates a new Sinatra application"
     argument :name, :type => :string, :desc => "The name of the new application"
     class_option :capistrano, :type => :boolean, :desc => "Include Capistrano configuration"
-    class_option :database, :aliases => "-d", :default => "sqlite", :desc => "The type of database to use"
-    class_option :no_database, :type => :boolean, :desc => "Exclude all database configuration files"
+    class_option :database, :aliases => "-d", :default => "", :desc => "The type of database to use"
     class_option :redis, :type => :boolean, :desc => "Include Redis configuration"
-    class_option :rvm_gemset, :type => :boolean, :desc => "Create a new RVM Gemset under the current Ruby"
-    class_option :no_bundle_install, :type => :boolean, :desc => "Don’t run bundle install after generating the app"
-    class_option :no_git_repo, :type => :boolean, :desc => "Don’t initialize a Git repository"
+    class_option :rvm, :type => :boolean, :desc => "Create .ruby-version (ruby-2.1.0) and .ruby-gemset"
+    class_option :bundle, :type => :boolean, :desc => "Run bundle after generating the app"
+    class_option :git, :type => :boolean, :desc => "Initialize a Git repository"
 
     # Creates instance variables from options passed to hazel.
     def setup
@@ -38,7 +37,7 @@ module Hazel
         empty_directory File.join(@app_path, dir)
       end
 
-      empty_directory File.join(@app_path, 'db/migrate') unless @no_database
+      empty_directory File.join(@app_path, 'db/migrate') unless @database.empty?
 
       create_file File.join(@app_path, "lib", ".gitkeep")
     end
@@ -83,21 +82,12 @@ module Hazel
       copy_file "README.md", File.join(@app_path, "README.md")
     end
 
-    def create_capistrano_config
-      if @capistrano
-        copy_file "Capfile", File.join(@app_path, "Capfile")
-        empty_directory File.join(@app_path, 'config/deploy')
-        template "config/deploy.rb", File.join(@app_path, "config/deploy.rb")
-        template "config/deploy/production.rb", File.join(@app_path, "config/deploy/production.rb")
-      end
-    end
-
     def create_db_config
-      template("config/db.yml", File.join(@app_path, "config/db.yml")) unless @no_database
+      template("config/db.yml", File.join(@app_path, "config/db.yml")) unless @database.empty?
     end
 
     def create_database_initializer
-      template("config/initializers/database.rb", File.join(@app_path, "config/initializers/database.rb")) unless @no_database
+      template("config/initializers/database.rb", File.join(@app_path, "config/initializers/database.rb")) unless @database.empty?
     end
 
     def create_redis_config
@@ -108,42 +98,33 @@ module Hazel
       template("config/initializers/redis.rb", File.join(@app_path, "config/initializers/redis.rb")) if @redis
     end
 
-    def create_rvm_gemset
-      if @rvm_gemset
-        rvm_path = File.expand_path(ENV['rvm_path'] || '~/.rvm')
-        require 'rvm'
-
-        rvm_env = RVM::Environment.new(ENV['RUBY_VERSION'])
-
-        rvm_env.gemset_create(@app_path)
-        rvm_env.gemset_use(@app_path)
-
-        gemset = "#{ENV['RUBY_VERSION']}@#{@app_path}"
-
-        create_file(File.join(@app_path, '.rvmrc'), "rvm use #{gemset}")
-        run("rvm rvmrc trust #{@app_path}")
-
-        unless @no_bundle_install
-          rvm_env.chdir(@app_path) do
-            say_status :installing, "All dependencies into #{gemset}"
-            rvm_env.system "gem install bundler"
-            rvm_env.run_command 'bundle install'
-          end
-
-          @no_bundle_install = true
+    def create_capistrano_config
+      if @capistrano
+        inside(@app_path) do
+          run('cap install')
         end
-      end
-    end
-
-    def install_dependencies
-      inside(@app_path) do
-        run('bundle install') unless @no_bundle_install
       end
     end
 
     def initialize_git_repo
       inside(@app_path) do
-        run('git init .') unless @no_git_repo
+        run('git init .') if @git
+      end
+    end
+
+    def create_rvm_gemset
+      if @rvm
+        create_file(File.join(@app_path, '.ruby-version'), 'ruby-2.1.0')
+        create_file(File.join(@app_path, '.ruby-gemset'), @app_path)
+
+        @bundle = false
+        puts "You need to run 'bundle install' manually."
+      end
+    end
+
+    def install_dependencies
+      inside(@app_path) do
+        run('bundle') if @bundle
       end
     end
   end

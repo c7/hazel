@@ -10,14 +10,13 @@ A simple Sinatra app generator, heavily based on [snfn](https://github.com/zachp
 
 ## Configuration
 
-* `--capistrano` Include Capistrano configuration
-*  `-d` Database. Options are "postgres," "mysql," "sqlite", and "mongo."
-   Default is "sqlite."
-*  `--redis` Include Redis configuration options.
-* `--rvm-gemset` Create a new RVM Gemset under the current Ruby
-* `--no-database` Don't include any database config options.
-* `--no-bundle-install` Don’t run bundle install after generating the app
-* `--no-git-repo` Don’t initialize a Git repository
+* `--capistrano` Include Capistrano
+* `-d` Database. Options are "postgres," "mysql," "sqlite", and "mongo."
+   Default is ""
+* `--redis` Include Redis configuration options.
+* `--rvm` Create .ruby-version (ruby-2.1.0) and .ruby-gemset
+* `--bundle` Run bundle after generating the app
+* `--git` Initialize a Git repository
 
 ## Example
 
@@ -29,13 +28,13 @@ App using MySQL and Redis.
 
     hazel my_app -d mysql --redis
 
-App using MongoDB and Redis, but don’t run bundle install.
+App using MongoDB and Redis, then run bundle install.
 
-    hazel my_app -d mongo --redis --no-bundle-install
+    hazel my_app -d mongo --redis --bundle
 
-App using Redis, a RVM Gemset, but no database or Git repo
+App using Redis, RVM, and Git repo
 
-    hazel my_app --redis --rvm-gemset --no-database --no-git-repo
+    hazel my_app --redis --rvm --git-repo
 
 ## Architecture
 
@@ -61,8 +60,8 @@ and `config/initializers/database.rb`).
 
 ## License
 
-    Copyright (c) 2013 Peter Hellberg
-    
+    Copyright (c) 2014 Peter Hellberg
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     "Software"), to deal in the Software without restriction, including
@@ -70,10 +69,10 @@ and `config/initializers/database.rb`).
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-    
+
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
