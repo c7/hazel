@@ -7,7 +7,7 @@ Rake::TestTask.new(:spec) do |t|
   t.ruby_opts = ['-rubygems'] if defined? Gem
 end
 
-<% unless @no_database -%>
+<% unless @database.empty? -%>
 namespace :db do
   desc "Run all migrations in db/migrate"
   task :migrate => :connect do
