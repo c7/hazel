@@ -3,7 +3,7 @@ source "https://rubygems.org/"
 # App Stack
 gem "sinatra", "~> 1.4"
 
-<% unless @no_database -%>
+<% unless @database.empty? -%>
 # Database Stack
 <% unless @database == 'mongo' -%>
 gem "sequel"
@@ -33,9 +33,8 @@ group :development do
   gem "rack-test", "~> 0.6"
 <% if @capistrano -%>
   gem "capistrano", "~> 3.0"
-  gem "capistrano-ext", "~> 1.2"
 <% if @rvm_gemset -%>
-  gem "rvm-capistrano", "~> 1.2"
+  gem "capistrano-rvm"
 <% end -%>
 <% end -%>
 end
