@@ -1,3 +1,5 @@
+require 'sinatra'
+
 class <%= @name.camel_case %> < Sinatra::Base
 
   set :public_folder => "public", :static => true
