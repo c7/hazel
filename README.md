@@ -36,6 +36,11 @@ App using Redis, RVM, and Git repo
 
     hazel my_app --redis --rvm --git-repo
 
+After Hazel is done generating an app, you can `cd` into your apps
+directory and `rackup`
+
+    cd my_app; rackup
+
 ## Architecture
 
 The template autoloads files in config/initializers and
